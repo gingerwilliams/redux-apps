@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { createStore } from "redux";
 
-const Hello = () => {
-    return <div>Hello Redux</div>;
-};
-
 //action
 const increment = () => {
     return {
@@ -39,6 +35,10 @@ store.subscribe(() => console.log(store.getState()));
 store.dispatch(increment());
 store.dispatch(decrement());
 store.dispatch(decrement());
+
+const Hello = () => {
+    return <div>Hello Redux {store.getState()}</div>;
+};
 
 ///////////
 
