@@ -31,7 +31,7 @@
     }
     ```
 
-3.  combine reducers
+3.  combine reducers reducers>index
     `const allReducers = combineReducer({counter : counter, logger : logger });`
 
 4.  createStore
