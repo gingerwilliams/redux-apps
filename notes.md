@@ -49,6 +49,7 @@
 7.  dispatch
     `store.dispatch(action());`(**_NOT A NECESSARY action_**)
     `import { useDispatch } from "react-redux";`
+    `import { increment } from "./actions/actionCreator";`
     `const dispatch = useDispatch();`
     `<button onClick={() => dispatch(increment())}>+</button>`
 
