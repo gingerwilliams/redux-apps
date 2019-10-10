@@ -12,9 +12,12 @@ const App = () => {
 
     return (
         <div>
-            {isLoggedIn ? "Sensitive Information" : "You have to be logged in"}
-            Counter: {counter}
+            <p>
+                Hello Redux:
+                {isLoggedIn ? "Welcome" : "Please Log In"}
+            </p>
             <div>
+                Counter: {counter}
                 <button onClick={() => dispatch(increment())}>+</button>
                 <button onClick={() => dispatch(decrement())}>-</button>
             </div>
