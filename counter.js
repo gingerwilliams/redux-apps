@@ -93,4 +93,6 @@ ReactDOM.render(
 
 //reducer : describes how your action transforms state into the next state, check witch action you did (process your order)
 
-//dispatch :  sends the action to the reducer or store ?
+//dispatch :  sends the action to the reducer
+
+//provider : binds the store to the app
