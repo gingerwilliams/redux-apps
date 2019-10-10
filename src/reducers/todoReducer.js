@@ -1,10 +1,11 @@
-export const todoReducer = (state = 0, action) => {
-    console.log("todo reducer", state);
+export const todoReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_TODO":
-            return state + 1;
+            console.log(action, state);
+            return [action.text, ...state];
         case "REMOVE_TODO":
-            return state - 1;
+            console.log(action);
+            return state;
         default:
             return state;
     }
