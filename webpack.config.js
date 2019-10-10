@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./counter.js",
+    entry: "./index.js",
     output: {
         filename: "bundle.js",
         publicPath: "dist/",
