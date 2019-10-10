@@ -29,7 +29,6 @@
             default:
                 return state
     }
-
     ```
 
 3.  combine reducers
