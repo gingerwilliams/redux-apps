@@ -1,10 +1,10 @@
 import React from "react";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeTodo } from "../actions/actionCreator";
 
 export const renderTodos = (item, index) => {
     console.log("renderTodos", item);
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
     return (
         <li key={index}>
             <p>
