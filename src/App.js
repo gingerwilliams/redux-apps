@@ -6,18 +6,24 @@ import { renderTodos } from "./components/renderTodos";
 
 export const App = () => {
     const todo = useSelector(state => state.todo);
-    const text = useRef(""); //input
+    const todoForm = useRef("");
+    const text = useRef(""); //input 'initialState'
     const dispatch = useDispatch();
+
+    const handleClick = e => {
+        e.preventDefault();
+        dispatch(addTodo(text.current.value));
+        text.current.value = "";
+    };
 
     return (
         <div>
             <p>Testing UI</p>
             <ul>{todo.map(renderTodos)}</ul>
-
-            <input ref={text} />
-            <button onClick={() => dispatch(addTodo(text.current.value))}>
-                +
-            </button>
+            <form ref={todoForm} onSubmit={handleClick}>
+                <input ref={text} />
+                <button onClick={handleClick}>+</button>
+            </form>
         </div>
     );
 };
