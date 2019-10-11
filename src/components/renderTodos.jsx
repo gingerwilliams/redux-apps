@@ -8,6 +8,7 @@ export const renderTodos = (item, index) => {
     return (
         <li key={index}>
             <p>
+                <input type="checkbox" />
                 {item}
                 <button onClick={() => dispatch(removeTodo(index))}>🗑</button>
             </p>

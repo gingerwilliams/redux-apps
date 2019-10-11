@@ -14,6 +14,6 @@ export const removeTodo = index => {
 
 export const strikeTodo = () => {
     return {
-        type: "REMOVE_TODO"
+        type: "STRIKE_TODO"
     };
 };
