@@ -1,12 +1,12 @@
 import React, { Component, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, removeTodo } from "./actions/actionCreator";
+import { addTodo } from "./actions/actionCreator";
 
 import { renderTodos } from "./components/renderTodos";
 
 export const App = () => {
     const todo = useSelector(state => state.todo);
-    const text = useRef(null);
+    const text = useRef(""); //input
     const dispatch = useDispatch();
 
     return (
@@ -18,8 +18,6 @@ export const App = () => {
             <button onClick={() => dispatch(addTodo(text.current.value))}>
                 +
             </button>
-
-            {/* <button onClick={() => dispatch(removeTodo())}>-</button> */}
         </div>
     );
 };

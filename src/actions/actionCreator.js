@@ -5,9 +5,10 @@ export const addTodo = text => {
     };
 };
 
-export const removeTodo = () => {
+export const removeTodo = index => {
     return {
-        type: "REMOVE_TODO"
+        type: "REMOVE_TODO",
+        index: index
     };
 };
 
