@@ -1,10 +1,23 @@
-import counter from "./counter";
-import isLoggedIn from "./isLoggedIn";
 import { combineReducers } from "redux";
 
-const rootReducer = combineReducers({
-    counter: counter,
-    isLoggedIn: isLoggedIn
-});
+const counterReducer = (state = 0, action) => {
+    switch (action.type) {
+        case "INCREMENT":
+            console.log("INCREMENT");
+            return state;
+        default:
+            return state;
+    }
+};
 
-export default rootReducer;
+const playerReducer = (state = "Player 1", action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+};
+
+export const rootReducer = combineReducers({
+    counter: counterReducer,
+    player: playerReducer
+});

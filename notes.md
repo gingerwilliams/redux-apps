@@ -55,3 +55,9 @@
 
 8.  display store in the console (**_NOT A NECESSARY STEP_**)
     `store.subscribe(() => console.log(store.getState()));`
+
+**_ HOOKS ISSUE in TODO Branch_**
+
+-   React Redux now includes its own useSelector and useDispatch
+-   The recommendation is to useDispatch() directly
+-   Hooks don't mesh very well with the "action creator" pattern.

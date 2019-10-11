@@ -4,8 +4,9 @@ export const increment = () => {
     };
 };
 
-export const decrement = () => {
+export const playerName = (name) => {
     return {
-        type: "DECREMENT"
+        type: "PLAYER_NAME"
+        name: name
     };
 };
