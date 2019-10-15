@@ -1,10 +1,17 @@
 import { combineReducers } from "redux";
 
-const counterReducer = (state = 0, action) => {
+const incrementPointsReducer = (state = [0, 0], action) => {
     switch (action.type) {
-        case "INCREMENT":
-            console.log("INCREMENT");
-            return state;
+        case "INCREMENT_PLAYER":
+            console.log("INCREMENT_PLAYER");
+            let updatePlayerState = [...state];
+            updatePlayerState[0] += 1;
+            return updatePlayerState;
+        case "INCREMENT_COMPUTER":
+            console.log("INCREMENT_COMPUTER");
+            let updateComputerState = [...state];
+            updateComputerState[1] += 1;
+            return updateComputerState;
         default:
             return state;
     }
@@ -17,7 +24,14 @@ const playerReducer = (state = "Player 1", action) => {
     }
 };
 
+const boardReducer = (state = [], action) => {
+    switch (action.type) {
+        default:
+            return state;
+    }
+};
+
 export const rootReducer = combineReducers({
-    counter: counterReducer,
+    points: incrementPointsReducer,
     player: playerReducer
 });
