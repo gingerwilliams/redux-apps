@@ -27,8 +27,17 @@ const playerReducer = (state = "Player 1", action) => {
     }
 };
 
-const boardReducer = (state = [], action) => {
+const boardReducer = (state = ["ready...", "ready...", ""], action) => {
     switch (action.type) {
+        case "UPDATE_BOARD":
+            let newState = [...state];
+            newState[0] = action.playerChoice;
+            newState[1] = action.computerChoice;
+            newState[2] = action.outcome;
+            console.log("UPDATE_BOARD", newState);
+            return newState;
+        case "RESET_BOARD":
+            return ([...state] = ["ready...", "ready..."]);
         default:
             return state;
     }
@@ -36,5 +45,6 @@ const boardReducer = (state = [], action) => {
 
 export const rootReducer = combineReducers({
     points: pointsReducer,
-    player: playerReducer
+    player: playerReducer,
+    board: boardReducer
 });

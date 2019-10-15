@@ -23,3 +23,18 @@ export const player = name => {
         name: "Player 1"
     };
 };
+
+export const updateBoard = (playerChoice, computerChoice, outcome) => {
+    return {
+        type: "UPDATE_BOARD",
+        playerChoice: playerChoice,
+        computerChoice: computerChoice,
+        outcome: outcome
+    };
+};
+
+export const resetBoard = (playerChoice, computerChoice) => {
+    return {
+        type: "RESET_BOARD"
+    };
+};
