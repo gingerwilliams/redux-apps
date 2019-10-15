@@ -11,7 +11,6 @@ export const App = () => {
 
     const computerChoice = () => {
         //console.log(Math.ceil(Math.random() * 3));
-
         return Math.ceil(Math.random() * 3);
     };
 
@@ -62,13 +61,13 @@ export const App = () => {
             ) : (
                 <div>
                     <div></div>
-                    <h2>Choose your Weapon:</h2>
+                    <h2>1, 2, 3 Shoot...</h2>
                     <form>
                         <button value="1" onClick={choices}>
                             🤜
                         </button>
                         <button value="2" onClick={choices}>
-                            ✋
+                            ☝️
                         </button>
                         <button value="3" onClick={choices}>
                             ✌️
