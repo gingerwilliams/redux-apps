@@ -11,28 +11,15 @@ export const incrementComputer = () => {
         type: "INCREMENT_COMPUTER"
     };
 };
+export const reset = () => {
+    return {
+        type: "RESET_POINTS"
+    };
+};
 
 export const player = name => {
     return {
         type: "PLAYER",
         name: "Player 1"
-    };
-};
-
-export const rock = () => {
-    return {
-        type: "ROCK"
-    };
-};
-
-export const paper = () => {
-    return {
-        type: "ROCK"
-    };
-};
-
-export const scissors = () => {
-    return {
-        type: "ROCK"
     };
 };

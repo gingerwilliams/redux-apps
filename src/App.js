@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { incrementPlayer, incrementComputer } from "./actions/actionCreator";
+import {
+    incrementPlayer,
+    incrementComputer,
+    reset
+} from "./actions/actionCreator";
 
 export const App = () => {
     const player = useSelector(state => state.player);
@@ -11,7 +15,7 @@ export const App = () => {
 
     const computerChoice = () => {
         //console.log(Math.ceil(Math.random() * 3));
-        return Math.ceil(Math.random() * 3);
+        return Math.floor(Math.random() * 3);
     };
 
     const choices = event => {
@@ -28,12 +32,10 @@ export const App = () => {
         if (player2 === player1) console.log("its a tie !!!!");
     };
 
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-    //     let computer = computerChoice();
-
-    //     console.log("submit computer choice", computer);
-    // };
+    const handleReset = event => {
+        event.preventDefault();
+        dispatch(reset());
+    };
 
     //determine who won
 
@@ -55,21 +57,27 @@ export const App = () => {
             {/* rerender UI with updated state  wont change this is because 
             you are accidentally mutating the original data" */}
             {points[0] === 3 ? (
-                "you won!!!"
+                <div>
+                    <p>You WON!!! 😃</p>
+                    <button onClick={handleReset}>Play Again</button>
+                </div>
             ) : points[1] === 3 ? (
-                "YOU LOST 😢"
+                <div>
+                    <p>You Lost 😢</p>
+                    <button onClick={handleReset}>Play Again</button>
+                </div>
             ) : (
                 <div>
                     <div></div>
                     <h2>1, 2, 3 Shoot...</h2>
                     <form>
-                        <button value="1" onClick={choices}>
+                        <button value="0" onClick={choices}>
                             🤜
                         </button>
-                        <button value="2" onClick={choices}>
+                        <button value="1" onClick={choices}>
                             ☝️
                         </button>
-                        <button value="3" onClick={choices}>
+                        <button value="2" onClick={choices}>
                             ✌️
                         </button>
                     </form>

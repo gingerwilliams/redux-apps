@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const incrementPointsReducer = (state = [0, 0], action) => {
+const pointsReducer = (state = [0, 0], action) => {
     switch (action.type) {
         case "INCREMENT_PLAYER":
             console.log("INCREMENT_PLAYER");
@@ -12,6 +12,9 @@ const incrementPointsReducer = (state = [0, 0], action) => {
             let updateComputerState = [...state];
             updateComputerState[1] += 1;
             return updateComputerState;
+        case "RESET_POINTS":
+            console.log("RESET_POINTS");
+            return ([...state] = [0, 0]);
         default:
             return state;
     }
@@ -32,6 +35,6 @@ const boardReducer = (state = [], action) => {
 };
 
 export const rootReducer = combineReducers({
-    points: incrementPointsReducer,
+    points: pointsReducer,
     player: playerReducer
 });
