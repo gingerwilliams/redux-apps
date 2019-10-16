@@ -29,4 +29,4 @@ ReactDOM.render(
 
 //provider : connects our store to our app
 
-//dispatch :  sends the action to the reducer or store ?
+//dispatch :  sends the action to the reducer?
