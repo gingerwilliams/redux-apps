@@ -55,3 +55,7 @@
 
 8.  display store in the console (**_NOT A NECESSARY STEP_**)
     `store.subscribe(() => console.log(store.getState()));`
+
+/////
+
+connect
