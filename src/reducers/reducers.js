@@ -1,9 +1,23 @@
 import { combineReducers, bindActionCreators } from "redux";
 
-const contactReducer = (state = ["ginger"], action) => {
+const contactReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_CONTACT":
-            console.log(state);
+            console.log("ADD_CONTACT action", action);
+            console.log("ADD_CONTACT state", state);
+
+            return [
+                ...state,
+                {
+                    name: action.name,
+                    mobile: action.mobile
+                }
+            ];
+        case "DELETE_CONTACT":
+            console.log("DELETE_CONTACT action", action);
+            console.log("DELETE_CONTACT state", state);
+
+            return [...state].filter((a, i) => i != action.index);
         default:
             return state;
     }

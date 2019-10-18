@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
+import ContactList from "./ContactList";
+import ContactForm from "./ContactForm";
 
 const App = () => {
     return (
-        <div>
-            <h1>App </h1>
-        </div>
+        <Fragment>
+            <ContactForm />
+            <ContactList />
+        </Fragment>
     );
 };
 
