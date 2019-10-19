@@ -11,7 +11,9 @@ const contactReducer = (state = [], action) => {
                 {
                     name: action.name,
                     mobile: action.mobile,
-                    image: `https://thispersondoesnotexist.com/image`
+                    image: `https://picsum.photos/100/100/?image=${Math.floor(
+                        Math.random() * 85
+                    )}`
                 }
             ];
         case "DELETE_CONTACT":
