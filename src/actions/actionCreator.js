@@ -1,8 +1,9 @@
-export const addContact = (name, mobile) => {
+export const addContact = (name, mobile, image) => {
     return {
         type: "ADD_CONTACT",
         name: name,
-        mobile: mobile
+        mobile: mobile,
+        image: image
     };
 };
 

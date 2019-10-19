@@ -14,6 +14,7 @@ const ContactList = props => {
         <div style={styles}>
             {props.contact.map((a, index) => (
                 <li key={index}>
+                    <img src={a.image} width="100" />
                     <span>{a.name}</span>
                     <span>{a.mobile}</span>
                     <button onClick={() => handleDelete(index)}>🗑</button>

@@ -10,7 +10,8 @@ const contactReducer = (state = [], action) => {
                 ...state,
                 {
                     name: action.name,
-                    mobile: action.mobile
+                    mobile: action.mobile,
+                    image: `https://thispersondoesnotexist.com/image`
                 }
             ];
         case "DELETE_CONTACT":
@@ -26,3 +27,5 @@ const contactReducer = (state = [], action) => {
 export const rootReducer = combineReducers({
     contact: contactReducer
 });
+
+// https://mymodernmet.com/this-person-does-not-exist/
