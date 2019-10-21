@@ -13,3 +13,18 @@ export const deleteContact = index => {
         index: index
     };
 };
+
+export const editContact = index => {
+    return {
+        type: "EDIT_CONTACT"
+    };
+};
+
+export const contactFormValueUpdate = (name, mobile, isEdit) => {
+    return {
+        type: "CONTACT_FORM_VALUE_UPDATE",
+        name: name,
+        mobile: mobile,
+        isEdit: isEdit
+    };
+};
