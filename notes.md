@@ -61,3 +61,41 @@
 -   React Redux now includes its own useSelector and useDispatch
 -   The recommendation is to useDispatch() directly
 -   Hooks don't mesh very well with the "action creator" pattern.
+
+/////
+
+## Connect
+
+1. component
+
+```
+    import { connect } from "react-redux";
+    import { increment, decrement } from "../actions/actionCreator";
+
+    const Component = () => {
+        return (
+            //
+        )
+    }
+    const mapStateToProps = state => {
+        return {
+            counter: state.counter
+        };
+    };
+
+    export default connect(
+        mapStateToProps,
+        { increment, decrement }
+    )(Component);
+```
+
+## persistedState
+
+-   import { localState, saveState } from "./localStorage";
+-   const persistedState = localState();
+
+## Subscribe
+
+-   store.subscribe(() => {
+    saveState(store.getState()); //postLocalStorage from store
+    });
