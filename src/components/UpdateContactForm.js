@@ -11,10 +11,14 @@ const UpdateContactForm = props => {
     let name = useRef("");
     let mobile = useRef("");
 
-    const handleEditContact = () => {
+    const handleUpdateContact = () => {
         if (name.current.value && mobile.current.value) {
             //dispatch action
-            props.editContact(name.current.value, mobile.current.value);
+            props.updateContact(
+                name.current.value,
+                mobile.current.value,
+                props.id
+            );
 
             //emtpy UI input
             name.current.value = "";
@@ -33,7 +37,7 @@ const UpdateContactForm = props => {
                 type="text"
                 placeholder="Mobile"
             />
-            <button type="button" onClick={handleEditContact}>
+            <button type="button" onClick={() => handleUpdateContact()}>
                 update contact
             </button>
             {/* Create new form for update contct */}

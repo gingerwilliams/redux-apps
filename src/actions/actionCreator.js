@@ -1,11 +1,11 @@
-export const addContact = (name, mobile, image, id) => {
+export const addContact = (name, mobile, image, id, isEdit) => {
     return {
         type: "ADD_CONTACT",
         name: name,
         mobile: mobile,
         image: image,
         id: id,
-        isEdit: false
+        isEdit: isEdit
     };
 };
 
@@ -23,9 +23,13 @@ export const editContact = id => {
     };
 };
 
-export const updateContact = id => {
+export const updateContact = (name, mobile, id, isEdit) => {
     return {
-        type: "UPDATE_CONTACT"
+        type: "UPDATE_CONTACT",
+        name: name,
+        mobile: mobile,
+        id: id,
+        isEdit: isEdit
     };
 };
 

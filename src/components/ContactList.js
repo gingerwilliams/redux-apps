@@ -25,7 +25,7 @@ const ContactList = props => {
                     <span>{a.name}</span>
                     <span>{a.mobile}</span>
                     {a.isEdit ? (
-                        <UpdateContactForm />
+                        <UpdateContactForm id={a.id} />
                     ) : (
                         <Fragment>
                             <button onClick={() => handleDelete(index)}>
