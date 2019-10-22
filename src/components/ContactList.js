@@ -1,41 +1,39 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
-import {
-    deleteContact,
-    editContact,
-    contactFormValueUpdate
-} from "../actions/actionCreator";
+import { deleteContact, editContact } from "../actions/actionCreator";
+import UpdateContactForm from "./UpdateContactForm";
+import Modal from "./shared/Modal";
 
 const styles = {
     background: "#fafafa"
 };
 
 const ContactList = props => {
-    const handleDelete = index => {
-        props.deleteContact(index);
-    };
-    const handleEdit = (name, mobile, index, isEdit) => {
-        //add input values to form state
-        props.contactFormValueUpdate(name, mobile, isEdit);
-        //props.deleteContact(index);
-
-        //props.editContact();
+    const handleDelete = id => {
+        props.deleteContact(id);
     };
 
+    const handleEdit = id => {
+        props.editContact(id); // handle hide and show of edit form
+    };
     return (
         <div style={styles}>
+            {/* give a unique id */}
             {props.contact.map((a, index) => (
-                <li key={index}>
+                <li id={index} key={index}>
                     <img src={a.image} width="100" />
                     <span>{a.name}</span>
                     <span>{a.mobile}</span>
-                    <button onClick={() => handleDelete(index)}>🗑</button>
-                    <button
-                        onClick={() =>
-                            handleEdit(a.name, a.mobile, index, true)
-                        }>
-                        ✏️
-                    </button>
+                    {a.isEdit ? (
+                        <UpdateContactForm />
+                    ) : (
+                        <Fragment>
+                            <button onClick={() => handleDelete(index)}>
+                                🗑
+                            </button>
+                            <button onClick={() => handleEdit(a.id)}>✏️</button>
+                        </Fragment>
+                    )}
                 </li>
             ))}
         </div>
@@ -45,12 +43,11 @@ const ContactList = props => {
 // export default ContactList;
 const mapStateToProps = state => {
     return {
-        contact: state.contact,
-        form: state.form
+        contact: state.contact
     };
 };
 
 export default connect(
     mapStateToProps,
-    { deleteContact, editContact, contactFormValueUpdate }
+    { deleteContact, editContact }
 )(ContactList);

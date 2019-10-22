@@ -3,57 +3,56 @@ import { combineReducers, bindActionCreators } from "redux";
 const contactReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_CONTACT":
-            console.log("ADD_CONTACT action", action);
-            console.log("ADD_CONTACT state", state);
-
+            // {/* give a unique id */}
             return [
                 ...state,
                 {
                     name: action.name,
                     mobile: action.mobile,
+                    isEdit: false,
                     image: `https://picsum.photos/100/100/?image=${Math.floor(
                         Math.random() * 85
-                    )}`
+                    )}`,
+                    id: `_${Math.floor(Math.random() * 300)}`
                 }
             ];
         case "DELETE_CONTACT":
-            console.log("DELETE_CONTACT action", action);
-            console.log("DELETE_CONTACT state", state);
-
-            return [...state].filter((a, i) => i != action.index);
+            return [...state].filter((a, i) => i != action.id);
         case "EDIT_CONTACT":
-            console.log("EDIT_CONTACT action", action);
-            console.log("EDIT_CONTACT state", state);
-            //target the contact by index
-            //[...state].filter((a, i) => i = action.index);
+            [...state].map(a => {
+                // console.log(a);
+                // console.log("a.id", a.id);
+                // console.log("action", action.id);
+                if (a.id === action.id) {
+                    a.isEdit = true;
+                } else a.isEdit = false;
+            });
+            return [...state];
+        case "UPDATE_CONTACT":
+            return [
+                ...state.slice(0, action.id), //pull all posts before the one we are changing
+                {
+                    //...state[action.id],
+                    name: action.name,
+                    mobile: action.number,
+                    image: "https://picsum.photos/100/100/?image=151",
+                    id: action.id,
+                    isEdit: action.isEdit
+                }, //take a copy of target post then update it
+                ...state.slice(action.id + 1) //pull all posts after the one we are changing
+            ];
 
-            return state;
-        default:
-            return state;
-    }
-};
+        //map state filter by id
+        //return editContactForm
 
-const formReducer = (
-    state = { name: "", mobile: "", isEdit: false },
-    action
-) => {
-    switch (action.type) {
-        case "CONTACT_FORM_VALUE_UPDATE":
-            console.log("CONTACT_FORM_VALUE_UPDATE", state, action);
-            return {
-                name: action.name,
-                mobile: action.mobile,
-                isEdit: action.isEdit
-            };
-
+        //return state;
         default:
             return state;
     }
 };
 
 export const rootReducer = combineReducers({
-    contact: contactReducer,
-    form: formReducer
+    contact: contactReducer
 });
 
 // https://mymodernmet.com/this-person-does-not-exist/

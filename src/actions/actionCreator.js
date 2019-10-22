@@ -1,30 +1,39 @@
-export const addContact = (name, mobile, image) => {
+export const addContact = (name, mobile, image, id) => {
     return {
         type: "ADD_CONTACT",
         name: name,
         mobile: mobile,
-        image: image
+        image: image,
+        id: id,
+        isEdit: false
     };
 };
 
-export const deleteContact = index => {
+export const deleteContact = id => {
     return {
         type: "DELETE_CONTACT",
-        index: index
+        id: id
     };
 };
 
-export const editContact = index => {
+export const editContact = id => {
     return {
-        type: "EDIT_CONTACT"
+        type: "EDIT_CONTACT",
+        id: id
     };
 };
 
-export const contactFormValueUpdate = (name, mobile, isEdit) => {
+export const updateContact = id => {
     return {
-        type: "CONTACT_FORM_VALUE_UPDATE",
-        name: name,
-        mobile: mobile,
-        isEdit: isEdit
+        type: "UPDATE_CONTACT"
     };
 };
+
+// export const contactFormValueUpdate = (name, mobile, isEdit) => {
+//     return {
+//         type: "CONTACT_FORM_VALUE_UPDATE",
+//         name: name,
+//         mobile: mobile,
+//         isEdit: isEdit
+//     };
+// };

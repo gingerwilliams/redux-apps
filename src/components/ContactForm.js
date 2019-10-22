@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
-import { addContact, contactFormValueUpdate } from "../actions/actionCreator";
+import { addContact } from "../actions/actionCreator";
 
 const ContactForm = props => {
     //side effect
@@ -8,15 +8,13 @@ const ContactForm = props => {
         event.preventDefault();
     };
 
-    let name = useRef(props.form.name);
-    let mobile = useRef(props.form.mobile);
+    let name = useRef("");
+    let mobile = useRef("");
 
     const handleAddContact = () => {
-        console.log("props.form.isEdit", props.form.isEdit);
         if (name.current.value && mobile.current.value) {
             //dispatch action
-            props.addContact(name.current.value, mobile.current.value);
-            props.contactFormValueUpdate("", "", null, false);
+            props.addContact(name.current.value, mobile.current.value, false);
 
             //emtpy UI input
             name.current.value = "";
@@ -38,7 +36,7 @@ const ContactForm = props => {
                 //value={}//if value is set, onChange must be set
                 //defaultValue={props.form.name} //only on inital pageload
                 //value={props.form.name}
-                onChange={handleChange}
+                //onChange={handleChange}
                 type="text"
                 placeholder="Name"
             />
@@ -54,6 +52,7 @@ const ContactForm = props => {
             <button type="button" onClick={handleAddContact}>
                 add a contact
             </button>
+            {/* Create new form for update contct */}
         </form>
     );
 };
@@ -67,5 +66,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { addContact, contactFormValueUpdate }
+    { addContact }
 )(ContactForm);
