@@ -10,11 +10,11 @@ const reduxDevTools =
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const persistedState = localState();
+const persistedState = localState(); //getlocalStorage
 const store = createStore(rootReducer, persistedState || {}, reduxDevTools);
 
 store.subscribe(() => {
-    saveState(store.getState());
+    saveState(store.getState()); //postLocalStorage from store
 });
 
 ReactDOM.render(
@@ -26,3 +26,4 @@ ReactDOM.render(
 
 // https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app
 // https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage
+// https://codeburst.io/redux-a-crud-example-abb834d763c9
