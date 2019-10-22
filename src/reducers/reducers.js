@@ -1,4 +1,4 @@
-import { combineReducers, bindActionCreators } from "redux";
+import { combineReducers } from "redux";
 
 const contactReducer = (state = [], action) => {
     switch (action.type) {
@@ -56,5 +56,3 @@ const contactReducer = (state = [], action) => {
 export const rootReducer = combineReducers({
     contact: contactReducer
 });
-
-// https://mymodernmet.com/this-person-does-not-exist/
