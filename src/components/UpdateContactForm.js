@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
-import { updateContact } from "../actions/actionCreator";
+import { updateContact, editContact } from "../actions/actionCreator";
 
 const UpdateContactForm = props => {
     //side effect
@@ -28,6 +28,10 @@ const UpdateContactForm = props => {
         }
     };
 
+    const handleEdit = id => {
+        props.editContact(id); // handle hide and show of edit form
+    };
+
     return (
         <form onSubmit={preventDefault}>
             <input ref={name} name="name" type="text" placeholder="Name" />
@@ -39,6 +43,9 @@ const UpdateContactForm = props => {
             />
             <button type="button" onClick={() => handleUpdateContact()}>
                 update contact
+            </button>
+            <button type="button" onClick={() => props.editContact(null)}>
+                ❌
             </button>
             {/* Create new form for update contct */}
         </form>
@@ -53,5 +60,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { updateContact }
+    { updateContact, editContact }
 )(UpdateContactForm);

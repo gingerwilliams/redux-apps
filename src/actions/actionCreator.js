@@ -16,10 +16,11 @@ export const deleteContact = id => {
     };
 };
 
-export const editContact = id => {
+export const editContact = (id, isEdit) => {
     return {
         type: "EDIT_CONTACT",
-        id: id
+        id: id,
+        isEdit: isEdit
     };
 };
 
