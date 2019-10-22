@@ -3,6 +3,7 @@ import { combineReducers, bindActionCreators } from "redux";
 const contactReducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_CONTACT":
+            console.log("ADD_CONTACT");
             // {/* give a unique id */}
             return [
                 ...state,
@@ -17,13 +18,13 @@ const contactReducer = (state = [], action) => {
                 }
             ];
         case "DELETE_CONTACT":
+            console.log("DELETE_CONTACT");
             return [...state].filter((a, i) => i != action.id);
         case "EDIT_CONTACT":
+            console.log("EDIT_CONTACT");
             //map state filter by id
             [...state].map(a => {
-                // console.log(a);
-                // console.log("a.id", a.id);
-                // console.log("action", action.id);
+                // console.log("action", a.id, action.id);
                 if (a.id === action.id) {
                     a.isEdit = true;
                 } else a.isEdit = false;

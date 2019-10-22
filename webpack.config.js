@@ -1,4 +1,5 @@
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     entry: "./src/index.js",
@@ -15,6 +16,13 @@ module.exports = {
         compress: true,
         historyApiFallback: true,
         contentBase: path.join(__dirname, "dist")
+    },
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                sourceMap: true // Must be set to true if using source-maps in production
+            })
+        ]
     },
     module: {
         rules: [
