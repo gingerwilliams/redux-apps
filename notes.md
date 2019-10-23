@@ -99,3 +99,17 @@
 -   store.subscribe(() => {
     saveState(store.getState()); //postLocalStorage from store
     });
+
+## Fetch
+
+```
+fetch(url).then((response)=>{
+  if(response.data){
+    this.props.dispatch({
+    type:"SET_USERS",
+    payload: response.data
+    })
+  }
+})
+connect()(Component)
+```
