@@ -23,7 +23,3 @@ ReactDOM.render(
     </Provider>,
     document.querySelector("#root")
 );
-
-// https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app
-// https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage
-// https://codeburst.io/redux-a-crud-example-abb834d763c9
