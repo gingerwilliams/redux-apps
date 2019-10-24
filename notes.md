@@ -89,10 +89,13 @@
     )(Component);
 ```
 
+/////
+
 ## persistedState
 
 -   import { localState, saveState } from "./localStorage";
 -   const persistedState = localState();
+-   const store = createStore(rootReducer, persistedState || {}, reduxDevTools);
 
 ## Subscribe
 
@@ -101,6 +104,9 @@
     });
 
 ## Fetch
+
+-   Redux doesn't have a way to handle async code?
+-   Use middleware for that Redux Thunk
 
 ```
 fetch(url).then((response)=>{
@@ -114,7 +120,49 @@ fetch(url).then((response)=>{
 connect()(Component)
 ```
 
+/////
+
+## Immutable
+
+-   Copy Object
+    `const original = {a:1, b:2};`
+    `const copy = Object.assign({}, original);`
+    `const copy = {...original};`
+-   Copy Array
+    `const original = [1,2,3];`
+    `const copy = [1,2,3].slice();`
+    `const copy = [...original]`
+-   Tells the framework you want to re-render the DOM
+-   Extend Array Plus Copy
+    `const original = [1,2,3];`
+    `const extended = original.concat(4);`
+    `const moreExtended = original.concat([4,5]);`
+    `const extended = [...original, 4,5 ];`
+    `const moreExtended = [...original, ...extended ];`
+    `.push() mutates`
+
+## All Redux Methods
+
+-   Create Store
+    `const store = createStore(rootReducer, )`
+-   Apply Middleware
+    `applyMiddleware()`
+-   Combine Reducers
+    `const rootReducer = combineReducers({example: exampleReducer})`
+-   Bind Action Creators
+    `bindActionCreators()`
+-   Compose
+    `compose()`
+
+## All Store Methods
+
+-   dispatch
+-   subscribe - fires an event every time there is a state change (react-redux)
+-   getState - get current state
+-   replaceReducer
+
 <!--
+https://www.youtube.com/watch?v=CVpUuw9XSjY
 https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app
 https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage
 https://codeburst.io/redux-a-crud-example-abb834d763c9
