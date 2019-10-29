@@ -10,8 +10,8 @@ $font-color: #283d3b;
     border: 1px solid darken($color, 10%);
     margin: 0.5em 0;
     outline: none;
-    padding: 1em;
-    width: 100%;
+    // padding: 1em;
+    // width: 100%;
     &:focus {
         background-color: lighten($color, 2%);
     }
