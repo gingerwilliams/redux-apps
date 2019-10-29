@@ -1,10 +1,11 @@
 import React from "react";
 
-const Board = () => {
+const Board = ({ board }) => {
+    console.log("board props", board);
     return (
         <div>
-            <h3>Board Title</h3>
-            <div>this is a summary</div>
+            <h3>{board.title}</h3>
+            <div>{board.summary}</div>
         </div>
     );
 };

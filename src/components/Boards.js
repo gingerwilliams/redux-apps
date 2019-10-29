@@ -1,11 +1,11 @@
 import React from "react";
-import Board from "./Board";
+import BoardContainer from "../containers/BoardContainer";
 
 const Boards = ({ boards }) => {
     return (
         <section>
             {boards.map(boardId => (
-                <Board key={boardId} />
+                <BoardContainer key={boardId} boardId={boardId} />
             ))}
         </section>
     );
