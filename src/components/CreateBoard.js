@@ -9,8 +9,11 @@ const CreateBoard = ({ addBoard }) => {
 
     const handleSubmitNewBoard = event => {
         event.preventDefault();
-        addBoard(createBoardForm.title, createBoardForm.summary);
-        setCreateBoardForm({ title: "", summary: "" });
+        if (createBoardForm.title && createBoardForm.summary) {
+            addBoard(createBoardForm.title, createBoardForm.summary);
+            setCreateBoardForm({ title: "", summary: "" });
+        } //TODO add form validation
+        return;
     };
 
     const handleChange = event => {
@@ -20,7 +23,9 @@ const CreateBoard = ({ addBoard }) => {
 
     return (
         <div>
-            <button onClick={() => toggleVisible(!isVisible)}>New Board</button>
+            <button onClick={() => toggleVisible(!isVisible)}>
+                {!isVisible ? "New Board" : "Cancel"}
+            </button>
             {!isVisible ? (
                 ""
             ) : (
