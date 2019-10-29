@@ -2,28 +2,20 @@ import React, { useState } from "react";
 
 const CreateBoard = ({ addBoard }) => {
     const [isVisible, toggleVisible] = useState(false);
-    const [newBoard, setNewBoard] = useState([
-        {
-            title: "Learn Hooks",
-            summary:
-                "Hooks let you use state and other React features without writing a class"
-        }
-    ]);
-    //initial state in the action
-    console.log(addBoard());
+    const [createBoardForm, setCreateBoardForm] = useState({
+        title: "", //Learn Hooks
+        summary: "" //"Hooks let you use state and other React features without writing a class"
+    });
+
     const handleSubmitNewBoard = event => {
         event.preventDefault();
-        addBoard("Test Title", "Test Summary");
-        console.log("new board");
+        addBoard(createBoardForm.title, createBoardForm.summary);
+        setCreateBoardForm({ title: "", summary: "" });
     };
 
     const handleChange = event => {
-        const target = event.target;
-        const value = target.value;
-
-        setNewBoard();
-
-        console.log(value);
+        const { name, value } = event.target;
+        setCreateBoardForm({ ...createBoardForm, [name]: value });
     };
 
     return (
@@ -36,12 +28,14 @@ const CreateBoard = ({ addBoard }) => {
                     <input
                         onChange={handleChange}
                         name="title"
+                        value={createBoardForm.title}
                         type="text"
                         placeholder="Title"
                     />
                     <input
                         onChange={handleChange}
                         name="summary"
+                        value={createBoardForm.summary}
                         type="text"
                         placeholder="Summary"
                     />

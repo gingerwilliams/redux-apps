@@ -4,7 +4,19 @@ import { boards as defaultBoards } from "../default-state.json";
 import { ADD_BOARD } from "../actions/actionCreators";
 
 const boardReducer = (boards = defaultBoards, action) => {
-    console.log(boards);
+    // console.log(boards);
+    if (action.type === ADD_BOARD) {
+        console.log(action);
+        const boardId = Date.now().toString();
+        return [
+            {
+                title: action.payload.title,
+                summary: action.payload.summary,
+                id: boardId
+            },
+            ...boards
+        ];
+    }
     return boards;
 };
 
