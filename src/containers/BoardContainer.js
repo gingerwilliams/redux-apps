@@ -2,10 +2,10 @@ import Board from "../components/Board";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state, ownProps) => {
-    // console.log("ownProps", ownProps);
-    // console.log("state", state);
+    const board = state.boards.filter(board => board.id === ownProps.boardId);
+
     return {
-        board: state.board.entities[ownProps.boardId]
+        board: board
     };
 };
 
