@@ -3,10 +3,10 @@ import React from "react";
 const Board = ({ board }) => {
     console.log("board props", board);
     return (
-        <div>
+        <article className="Board">
             <h3>{board.title}</h3>
             <div>{board.summary}</div>
-        </div>
+        </article>
     );
 };
 

@@ -88,8 +88,43 @@ input[type="submit"] {
 .Application {
     display: flex;
     margin: 0.5em;
+    flex-direction: column;
 }
 
+header {
+    display: block;
+    width: 100%;
+}
+
+.Boards {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @media only screen and (min-width: 480px) {
+        flex-direction: row;
+    }
+}
+
+.Board {
+    background-color: $list-color;
+    border: 1px solid darken($list-color, 10%);
+    height: 100%;
+
+    padding: 0.5em;
+    width: 100%;
+    @media only screen and (min-width: 480px) {
+        width: 50%;
+    }
+    @media only screen and (min-width: 768px) {
+        width: 25%;
+    }
+
+    @include box-shadow($list-color);
+}
+
+//
 .toggle-options {
     @include button-style($list-color);
     color: darken($list-color, 50%);
@@ -148,22 +183,6 @@ input[type="submit"] {
 
 .CreateList-submit {
     flex: 1;
-}
-
-.List {
-    background-color: $list-color;
-    border: 1px solid darken($list-color, 10%);
-    height: 100%;
-    margin-right: 0.5em;
-    padding: 0.5em;
-    width: 250px;
-    @include box-shadow($list-color);
-}
-
-.Lists {
-    display: flex;
-    height: 100%;
-    width: 100%;
 }
 
 .User {

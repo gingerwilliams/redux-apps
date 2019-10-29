@@ -4,6 +4,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { rootReducer } from "./reducers";
 import App from "./components/App";
+import "./index.scss";
 
 const devTools =
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
