@@ -51,7 +51,7 @@
             "posts": [
                 {
                     "id": "1558196598474",
-                    "title": "Learn Redux",
+                    "title": "Angular v2 +",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!",
                     "comments": [
                         {
@@ -73,17 +73,17 @@
                 },
                 {
                     "id": "1558196598475",
-                    "title": "Good Old PropDrilling",
+                    "title": "React",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 },
                 {
                     "id": "1558196598476",
-                    "title": "MobX",
+                    "title": "Preact",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 },
                 {
                     "id": "1558196598477",
-                    "title": "Contex",
+                    "title": "Vue",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 }
             ]
@@ -95,7 +95,7 @@
             "posts": [
                 {
                     "id": "1558196599474",
-                    "title": "Learn Redux",
+                    "title": "MSSQL",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!",
                     "comments": [
                         {
@@ -117,17 +117,17 @@
                 },
                 {
                     "id": "1558196599475",
-                    "title": "Good Old PropDrilling",
+                    "title": "PosgresQL",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 },
                 {
                     "id": "1558196599476",
-                    "title": "MobX",
+                    "title": "MySQL",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 },
                 {
                     "id": "1558196599477",
-                    "title": "Contex",
+                    "title": "indexDB",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 }
             ]
@@ -139,7 +139,7 @@
             "posts": [
                 {
                     "id": "1558196590474",
-                    "title": "Learn Redux",
+                    "title": "Node,js",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!",
                     "comments": [
                         {
@@ -161,17 +161,17 @@
                 },
                 {
                     "id": "1558196590475",
-                    "title": "Good Old PropDrilling",
+                    "title": "C#",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 },
                 {
                     "id": "1558196590476",
-                    "title": "MobX",
+                    "title": "Python",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 },
                 {
                     "id": "1558196590477",
-                    "title": "Contex",
+                    "title": "Java",
                     "description": "I heard that it can help, but it looks like it has a lot of boilerplate!"
                 }
             ]

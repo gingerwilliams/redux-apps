@@ -12,7 +12,8 @@ const boardReducer = (boards = defaultBoards, action) => {
             {
                 title: action.payload.title,
                 summary: action.payload.summary,
-                id: boardId
+                id: boardId,
+                posts: []
             },
             ...boards
         ];

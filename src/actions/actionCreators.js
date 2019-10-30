@@ -6,13 +6,14 @@ export const ADD_BOARD = "ADD_BOARD";
 //     user: ""
 // };
 
-export const addBoard = (title, summary, id) => {
+export const addBoard = (title, summary, id, posts) => {
     return {
         type: ADD_BOARD,
         payload: {
             title,
             summary,
-            id
+            id,
+            posts
         }
     };
 };
