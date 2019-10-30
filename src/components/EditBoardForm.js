@@ -4,21 +4,24 @@ const EditBoardForm = ({ board, editBoard, isEditBoard }) => {
     //console.log(props);
 
     const [isVisible, toggleVisible] = useState(false);
-    const [createBoardForm, setCreateBoardForm] = useState({
+    const [editBoardForm, setEditBoardForm] = useState({
         title: board.title,
         summary: board.summary
     });
 
     const handleSubmitEditBoard = event => {
         event.preventDefault();
-        if (createBoardForm.title && createBoardForm.summary) {
+        if (editBoardForm.title && editBoardForm.summary) {
+            //payload
             editBoard(
-                createBoardForm.title,
-                createBoardForm.summary,
+                editBoardForm.title,
+                editBoardForm.summary,
                 board.id,
                 board.posts
             );
-            setCreateBoardForm({ title: "", summary: "" });
+            //reset form
+            setEditBoardForm({ title: "", summary: "" });
+            //close form
             isEditBoard();
         } //TODO add form validation
         return;
@@ -26,7 +29,7 @@ const EditBoardForm = ({ board, editBoard, isEditBoard }) => {
 
     const handleChange = event => {
         const { name, value } = event.target;
-        setCreateBoardForm({ ...createBoardForm, [name]: value });
+        setEditBoardForm({ ...editBoardForm, [name]: value });
     };
 
     return (
@@ -35,14 +38,14 @@ const EditBoardForm = ({ board, editBoard, isEditBoard }) => {
                 <input
                     onChange={handleChange}
                     name="title"
-                    value={createBoardForm.title}
+                    value={editBoardForm.title}
                     type="text"
                     placeholder="Title"
                 />
                 <input
                     onChange={handleChange}
                     name="summary"
-                    value={createBoardForm.summary}
+                    value={editBoardForm.summary}
                     type="text"
                     placeholder="Summary"
                 />
