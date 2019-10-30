@@ -55,6 +55,13 @@ input {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -130,7 +137,7 @@ header {
     color: darken($list-color, 50%);
 }
 
-.Card {
+.Post {
     background-color: $card-color;
     border: 1px solid darken($card-color, 20%);
     margin: 0.5em;
@@ -142,11 +149,11 @@ header {
     }
 }
 
-.Card-description {
+.Post-description {
     margin: 1em 0;
 }
 
-.Card-toggle {
+.Post-toggle {
     @include button-style($card-color);
     color: darken($card-color, 50%);
 }

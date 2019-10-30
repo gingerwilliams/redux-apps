@@ -1,10 +1,11 @@
 import React from "react";
 
 const Post = ({ post }) => {
-    // console.log(post);
+    console.log(post);
     return (
-        <li>
-            <a>{post.title}</a>
+        <li className="Post">
+            <h4>{post.title}</h4>
+            <a>{post.body}</a>
         </li>
     );
 };
