@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-// import Posts from "./Posts";
 import PostsContainer from "../containers/PostsContainer";
 import EditBoardFormContainer from "../containers/EditBoardFormContainer";
+import CreatePostContainer from "../containers/CreatePostContainer";
 
 const Board = ({ board }) => {
     const [isEditBoard, toggleEditBoard] = useState(false);
-    const handleClick = e => {
-        e.preventDefault();
-    };
+    const [isAddPost, toggleAddPost] = useState(false);
+
     const currentBoard = board[0]; //move to reducer
 
     return (
@@ -27,9 +26,18 @@ const Board = ({ board }) => {
             )}
 
             <hr />
-            <a onClick={handleClick}>
+
+            <button onClick={() => toggleAddPost(!isAddPost)}>
                 <span>➕</span> Add Post
-            </a>
+            </button>
+            {isAddPost ? (
+                <CreatePostContainer
+                    boardId={currentBoard.id}
+                    isAddPost={() => toggleAddPost(!isAddPost)}
+                />
+            ) : (
+                ""
+            )}
 
             <PostsContainer boardId={currentBoard.id} />
         </article>
