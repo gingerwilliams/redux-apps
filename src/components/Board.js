@@ -18,7 +18,10 @@ const Board = ({ board }) => {
                 {isEditBoard ? "cancel" : "edit board"}
             </button>
             {isEditBoard ? (
-                <EditBoardFormContainer boardId={currentBoard.id} />
+                <EditBoardFormContainer
+                    boardId={currentBoard.id}
+                    isEditBoard={() => toggleEditBoard(!isEditBoard)}
+                />
             ) : (
                 ""
             )}

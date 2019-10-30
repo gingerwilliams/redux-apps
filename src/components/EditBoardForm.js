@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // ({ editBoard })
-const EditBoardForm = ({ board, editBoard }) => {
+const EditBoardForm = ({ board, editBoard, isEditBoard }) => {
     //console.log(props);
-    console.log(board);
+
     const [isVisible, toggleVisible] = useState(false);
     const [createBoardForm, setCreateBoardForm] = useState({
         title: board.title,
@@ -19,9 +19,9 @@ const EditBoardForm = ({ board, editBoard }) => {
                 board.posts
             );
             setCreateBoardForm({ title: "", summary: "" });
+            isEditBoard();
         } //TODO add form validation
         return;
-        console.log(editBoard());
     };
 
     const handleChange = event => {
