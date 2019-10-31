@@ -1,6 +1,5 @@
 import React from "react";
 import BoardContainer from "../containers/BoardContainer";
-import Board from "../components/Board";
 
 const Boards = ({ boards }) => {
     return (
