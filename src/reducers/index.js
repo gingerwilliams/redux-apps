@@ -10,6 +10,7 @@ import {
 
 const boardReducer = (boards = defaultBoards, action) => {
     if (action.type === ADD_BOARD) {
+        //create an id for the new board
         const boardId = "_board_" + Date.now().toString();
         return [
             {
