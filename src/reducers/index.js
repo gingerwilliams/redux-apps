@@ -35,11 +35,12 @@ const boardReducer = (boards = defaultBoards, action) => {
         });
     }
     if (action.type === ADD_POST) {
+        //create an id for the new post
         const postId = "_post_" + Date.now().toString();
-        const posts = [...boards].filter(
-            board => board.id === action.payload.boardId
-        )[0].posts;
-        console.log("ADD_POST", action);
+        //find the target board
+        const b = boards.find(board => board.id === action.payload.boardId);
+        //target boards posts
+        const posts = b.posts;
 
         return boards.map(board => {
             if (board.id === action.payload.boardId) {
@@ -62,10 +63,13 @@ const boardReducer = (boards = defaultBoards, action) => {
         });
     }
     if (action.type === EDIT_POST) {
+        //find the target board
         const b = boards.find(board => board.id === action.payload.boardId);
+        //find the target post
         const p = b.posts.find(post => post.id === action.payload.id);
+        //seperate the rest of the unedited post
         const restPost = b.posts.filter(p => p.id !== action.payload.id);
-
+        //updated post data
         const updatedPost = {
             id: p.id,
             title: action.payload.title,
