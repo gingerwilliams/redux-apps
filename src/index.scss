@@ -138,6 +138,17 @@ header {
     @include box-shadow($list-color);
 }
 
+.Comments {
+    //
+}
+
+.Comment {
+    font-size: 10px;
+    margin: 2px 0;
+    padding: 2px 0 4px;
+    background: #ffffff;
+}
+
 //
 .toggle-options {
     @include button-style($list-color);

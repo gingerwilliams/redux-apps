@@ -56,18 +56,18 @@
                     "comments": [
                         {
                             "id": "1558196598373",
-                            "user": "ninja",
-                            "text": "this is my unsolicited opinion "
+                            "user": "darth 🥑",
+                            "text": "the angular7 (formerly 2) is pretty good"
                         },
                         {
                             "id": "1558196598374",
-                            "user": "nunya",
-                            "text": "this is my unsolicited opinion "
+                            "user": "😌marie",
+                            "text": "Https://angularfirebase.com"
                         },
                         {
                             "id": "15581965983715",
-                            "user": "🌞 sunshine ",
-                            "text": "this is my unsolicited opinion "
+                            "user": "jack-o 🎃",
+                            "text": "Plenty of free material out there."
                         }
                     ]
                 },
@@ -99,19 +99,19 @@
                     "body": "I heard that it can help, but it looks like it has a lot of boilerplate!",
                     "comments": [
                         {
-                            "id": "1558196599373",
+                            "id": "15581965993716",
                             "user": "ninja",
-                            "text": "this is my unsolicited opinion "
+                            "text": "Link to the dataset? http://www.sqlfiddle.com/"
                         },
                         {
-                            "id": "1558196599374",
+                            "id": "15581965993717",
                             "user": "nunya",
-                            "text": "this is my unsolicited opinion "
+                            "text": "https://www.microsoft.com/en-us/sql-server/sql-server-editions-express | https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017"
                         },
                         {
-                            "id": "15581965993715",
+                            "id": "15581965993718",
                             "user": "🌞 sunshine ",
-                            "text": "this is my unsolicited opinion "
+                            "text": "I have a textbook with SQL exercises ranging from easy to advanced levels... I can send you the PDF if you’re interested"
                         }
                     ]
                 },
@@ -139,23 +139,23 @@
             "posts": [
                 {
                     "id": "1558196590474",
-                    "title": "Node,js",
+                    "title": "Node.js",
                     "body": "I heard that it can help, but it looks like it has a lot of boilerplate!",
                     "comments": [
                         {
-                            "id": "1558196590373",
+                            "id": "15581965903719",
                             "user": "ninja",
-                            "text": "this is my unsolicited opinion "
+                            "text": "Async code can be easily written ”as sync” with async / await."
                         },
                         {
-                            "id": "1558196590374",
-                            "user": "nunya",
-                            "text": "this is my unsolicited opinion "
+                            "id": "15581965903720",
+                            "user": "nunya 🍣",
+                            "text": "Based on your use case, you actually want to do an aggregation in your MongoDB. In mongoose, you do that with the model.aggregate()method which returns a AggregationCursor that lazily fetches documents in batches. Since AggregationCursor extends node's built-in ReadableStream, now you can work with it using all sorts of APIs, including for-await-of loops."
                         },
                         {
-                            "id": "15581965903715",
+                            "id": "15581965903721",
                             "user": "🌞 sunshine ",
-                            "text": "this is my unsolicited opinion "
+                            "text": "https://css-tricks.com/why-using-reduce-to-sequentially-resolve-promises-works/"
                         }
                     ]
                 },
