@@ -7,18 +7,16 @@ const Board = ({ board }) => {
     const [isEditBoard, toggleEditBoard] = useState(false);
     const [isAddPost, toggleAddPost] = useState(false);
 
-    const currentBoard = board[0]; //move to reducer
-
     return (
         <article className="Board">
-            <h3>{currentBoard.title}</h3>
-            <div>{currentBoard.summary}</div>
+            <h3>{board.title}</h3>
+            <div>{board.summary}</div>
             <button onClick={() => toggleEditBoard(!isEditBoard)}>
                 {isEditBoard ? "cancel" : "edit board"}
             </button>
             {isEditBoard ? (
                 <EditBoardFormContainer
-                    boardId={currentBoard.id}
+                    boardId={board.id}
                     isEditBoard={() => toggleEditBoard(!isEditBoard)}
                 />
             ) : (
@@ -32,14 +30,14 @@ const Board = ({ board }) => {
             </button>
             {isAddPost ? (
                 <CreatePostContainer
-                    boardId={currentBoard.id}
+                    boardId={board.id}
                     isAddPost={() => toggleAddPost(!isAddPost)}
                 />
             ) : (
                 ""
             )}
 
-            <PostsContainer boardId={currentBoard.id} />
+            <PostsContainer boardId={board.id} />
         </article>
     );
 };
