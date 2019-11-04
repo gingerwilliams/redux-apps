@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EditPostForm from "./EditPostForm";
 import EditPostFormContainer from "../containers/EditPostFormContainer";
 import CommentsContainer from "../containers/CommentsContainer";
+import CreateComment from "./CreateComment";
 
 const Post = ({ post, boardId, postId }) => {
     const [isEditPost, toggleEditPost] = useState(false);
@@ -21,7 +22,7 @@ const Post = ({ post, boardId, postId }) => {
             <h4>{post.title}</h4>
             <a>{post.body}</a>
             <hr />
-            <textarea placeholder="comment" />
+            <CreateComment />
             {/* add a comment */}
             <CommentsContainer boardId={boardId} postId={postId} />
         </li>
