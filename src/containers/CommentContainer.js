@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
     const comment = post.comments.find(
         comment => comment.id === ownProps.commentId
     );
-    console.log(comment);
+
     return {
         comment: comment
     };
