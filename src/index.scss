@@ -46,6 +46,47 @@ body {
     margin: 0;
 }
 
+// $mobile-sm: 320px;
+// $mobile-md: 480px;
+// $moible-lg: 600px;
+
+// $desktop-sm: 768px;
+// $desktop-md: 1024px;
+// $desktop-lg: 1200px;
+// $desktop-xlg: 1600px;
+
+// col-xxx-1: 8.33333333%;
+// col-xxx-2: 16.66666667%;
+// col-xxx-3: 25%
+// col-xxx-4: 33.33333333%;
+// col-xxx-5: 41.66666667%;
+// col-xxx-6: 50%;
+// col-xxx-7: 58.33333333%;
+// col-xxx-8: 66.66666667%;
+// col-xxx-9: 75%;
+// col-xxx-10: 83.33333333%;
+// col-xxx-11: 91.66666667%;
+// col-xxx-12: 100%;
+
+.row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @media only screen and (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .col-md-4 {
+        width: 33.33333333%;
+    }
+
+    .col-md-8 {
+        width: 66.66666667%;
+    }
+}
+
 body,
 input,
 textarea {
