@@ -5,7 +5,8 @@ import {
     ADD_BOARD,
     EDIT_BOARD,
     ADD_POST,
-    EDIT_POST
+    EDIT_POST,
+    ADD_COMMENT
 } from "../actions/actionCreators";
 
 const boardReducer = (boards = defaultBoards, action) => {
@@ -90,6 +91,50 @@ const boardReducer = (boards = defaultBoards, action) => {
             return board;
         });
     }
+
+    if (action.type === ADD_COMMENT) {
+        console.log("add comment", action.payload);
+        //create an id for the new comment
+        const commentId = "_comment_" + Date.now().toString();
+        //find the target board
+        const b = boards.find(board => board.id === action.payload.boardId);
+        //find the target post
+        const p = b.posts.find(post => post.id === action.payload.postId);
+        const otherposts = b.posts.filter(
+            post => post.id !== action.payload.postId
+        );
+        //list of comments
+        const comments = p.comments;
+
+        //newComment to be added
+        const newComment = {
+            id: commentId,
+            user: action.payload.user,
+            text: action.payload.text
+        };
+
+        console.log(comments);
+        return boards.map(board => {
+            if (board.id === action.payload.boardId) {
+                return {
+                    id: board.id,
+                    title: board.title,
+                    summary: board.summary,
+                    posts: [
+                        {
+                            title: p.title,
+                            body: p.body,
+                            id: p.id,
+                            comments: [newComment, ...comments]
+                        },
+                        ...otherposts
+                    ]
+                };
+            }
+            return board;
+        });
+    }
+
     return boards;
 };
 

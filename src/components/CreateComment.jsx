@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-const CreateComment = () => {
+
+//({ boardId, addComment })
+const CreateComment = ({ boardId, postId, addComment }) => {
+    //console.log(props);
     //State for form
     const [createCommentForm, setCreateCommentForm] = useState({
-        user: "",
+        user: "comment.user",
         text: ""
     });
 
@@ -11,7 +14,14 @@ const CreateComment = () => {
     //Events
     const handleSubmitNewComment = event => {
         event.preventDefault();
-        console.log("comment me");
+        addComment(
+            boardId,
+            postId,
+            createCommentForm.user,
+            createCommentForm.text
+        );
+        toggleIsFocus(!isFocus);
+        setCreateCommentForm({ user: "comment.user", text: "" });
     };
 
     const handleChange = () => {
@@ -33,6 +43,7 @@ const CreateComment = () => {
                 <textarea
                     name="text"
                     onChange={handleChange}
+                    value={createCommentForm.text}
                     placeholder="comment"
                     onFocus={handlefocus}
                 />
