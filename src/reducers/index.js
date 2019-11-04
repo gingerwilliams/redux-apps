@@ -6,7 +6,8 @@ import {
     EDIT_BOARD,
     ADD_POST,
     EDIT_POST,
-    ADD_COMMENT
+    ADD_COMMENT,
+    EDIT_COMMENT
 } from "../actions/actionCreators";
 
 const boardReducer = (boards = defaultBoards, action) => {
@@ -138,7 +139,58 @@ const boardReducer = (boards = defaultBoards, action) => {
             return board;
         });
     }
+    if (action.type === EDIT_COMMENT) {
+        //find the target board
+        const b = boards.find(board => board.id === action.payload.boardId);
+        //find the target post
+        const p = b.posts.find(post => post.id === action.payload.postId);
+        //filter out the target post
+        const otherposts = b.posts.filter(
+            post => post.id !== action.payload.postId
+        );
 
+        // //list of comments from target post
+        // const comments = p.comments;
+
+        //find the target comment
+        const c = p.comments.find(
+            comment => comment.id === action.payload.commentId
+        );
+
+        //filter out the target comments
+        const otherComments = p.comments.filter(
+            comment => comment.id !== action.payload.commentId
+        );
+
+        console.log("edit_comment_reducer", c);
+
+        // updated comment data
+        const updatedComment = {
+            id: c.id,
+            user: c.user,
+            text: action.payload.text
+        };
+
+        return boards.map(board => {
+            if (board.id === action.payload.boardId) {
+                return {
+                    id: board.id,
+                    title: board.title,
+                    summary: board.summary,
+                    posts: [
+                        {
+                            title: p.title,
+                            body: p.body,
+                            id: p.id,
+                            comments: [updatedComment, ...otherComments]
+                        },
+                        ...otherposts
+                    ]
+                };
+            }
+            return board;
+        });
+    }
     return boards;
 };
 

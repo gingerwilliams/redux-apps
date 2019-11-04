@@ -3,6 +3,7 @@ export const ADD_POST = "ADD_POST";
 export const EDIT_BOARD = "EDIT_BOARD";
 export const EDIT_POST = "EDIT_POST";
 export const ADD_COMMENT = "ADD_COMMENT";
+export const EDIT_COMMENT = "EDIT_COMMENT";
 
 // const defaultNewBoardData = {
 //     title: "",
@@ -66,6 +67,19 @@ export const addComment = (boardId, postId, user, text) => {
         payload: {
             boardId,
             postId,
+            user,
+            text
+        }
+    };
+};
+
+export const editComment = (boardId, postId, commentId, user, text) => {
+    return {
+        type: EDIT_COMMENT,
+        payload: {
+            boardId,
+            postId,
+            commentId,
             user,
             text
         }
