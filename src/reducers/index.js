@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
 // import { boards as defaultBoards } from "../normalized-state";
 import { boards as defaultBoards } from "../default-state.json";
+
 import {
     ADD_BOARD,
     EDIT_BOARD,
     ADD_POST,
     EDIT_POST,
     ADD_COMMENT,
-    EDIT_COMMENT
+    EDIT_COMMENT,
+    CREATE_USER
 } from "../actions/actionCreators";
 
 const boardReducer = (boards = defaultBoards, action) => {
@@ -194,6 +196,20 @@ const boardReducer = (boards = defaultBoards, action) => {
     return boards;
 };
 
+const userReducer = (users = {}, action) => {
+    if (action.type === CREATE_USER) {
+        console.log("CREATE_USER");
+        const id = `_uid_${Date.now().toString()}`;
+
+        return {
+            name: action.payload.name,
+            id: id
+        };
+    }
+    return users;
+};
+
 export const rootReducer = combineReducers({
-    boards: boardReducer
+    boards: boardReducer,
+    user: userReducer
 });

@@ -1,3 +1,4 @@
+export const CREATE_USER = "CREATE_USER";
 export const ADD_BOARD = "ADD_BOARD";
 export const ADD_POST = "ADD_POST";
 export const EDIT_BOARD = "EDIT_BOARD";
@@ -10,6 +11,16 @@ export const EDIT_COMMENT = "EDIT_COMMENT";
 //     summary: "",
 //     user: ""
 // };
+
+export const createUser = (name, id) => {
+    return {
+        type: CREATE_USER,
+        payload: {
+            name,
+            id
+        }
+    };
+};
 
 export const addBoard = (title, summary, id, posts) => {
     return {
