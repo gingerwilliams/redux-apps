@@ -91,7 +91,6 @@ const boardReducer = (boards = defaultBoards, action) => {
             return board;
         });
     }
-
     if (action.type === ADD_COMMENT) {
         console.log("add comment", action.payload);
         //create an id for the new comment
@@ -103,7 +102,7 @@ const boardReducer = (boards = defaultBoards, action) => {
         const otherposts = b.posts.filter(
             post => post.id !== action.payload.postId
         );
-        //list of comments
+        //list of comments from target post
         const comments = p.comments;
 
         //newComment to be added
@@ -112,6 +111,11 @@ const boardReducer = (boards = defaultBoards, action) => {
             user: action.payload.user,
             text: action.payload.text
         };
+
+        // return new list, check to see if existing comments exist
+        const newCommentList = comments
+            ? [newComment, ...comments]
+            : [newComment];
 
         console.log(comments);
         return boards.map(board => {
@@ -125,7 +129,7 @@ const boardReducer = (boards = defaultBoards, action) => {
                             title: p.title,
                             body: p.body,
                             id: p.id,
-                            comments: [newComment, ...comments]
+                            comments: newCommentList
                         },
                         ...otherposts
                     ]
