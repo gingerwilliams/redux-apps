@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-//({ boardId, addComment })
-const CreateComment = ({ boardId, postId, addComment }) => {
+//({ boardId, postId, user, addComment })
+const CreateComment = ({ boardId, postId, user, addComment }) => {
     //State for form
     const [createCommentForm, setCreateCommentForm] = useState({
-        user: "comment.user",
         text: ""
     });
 
@@ -13,15 +12,10 @@ const CreateComment = ({ boardId, postId, addComment }) => {
     //Events
     const handleSubmitNewComment = event => {
         event.preventDefault();
-        if (createCommentForm.text) {
-            addComment(
-                boardId,
-                postId,
-                createCommentForm.user,
-                createCommentForm.text
-            );
+        if (createCommentForm.text && user) {
+            addComment(boardId, postId, user, createCommentForm.text);
             toggleIsFocus(!isFocus);
-            setCreateCommentForm({ user: "comment.user", text: "" });
+            setCreateCommentForm({ text: "" });
         }
     };
 
