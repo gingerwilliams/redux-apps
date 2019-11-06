@@ -1,16 +1,9 @@
 export const CREATE_USER = "CREATE_USER";
-export const ADD_BOARD = "ADD_BOARD";
-export const ADD_POST = "ADD_POST";
-export const EDIT_BOARD = "EDIT_BOARD";
-export const EDIT_POST = "EDIT_POST";
-export const ADD_COMMENT = "ADD_COMMENT";
-export const EDIT_COMMENT = "EDIT_COMMENT";
+export const FETCH_COINS_PENDING = "FETCH_COINS_PENDING";
+export const FETCH_COINS_SUCCESS = "FETCH_COINS_SUCCESS";
+export const FETCH_COINS_ERROR = "FETCH_COINS_ERROR";
 
-// const defaultNewBoardData = {
-//     title: "",
-//     summary: "",
-//     user: ""
-// };
+import { API_KEY_CMC } from "../../config_keys";
 
 export const createUser = (name, id) => {
     return {
@@ -22,77 +15,39 @@ export const createUser = (name, id) => {
     };
 };
 
-export const addBoard = (title, summary, id, posts) => {
+export const fetchCoinsPending = () => {
     return {
-        type: ADD_BOARD,
+        type: FETCH_COINS_PENDING
+    };
+};
+
+export const fetchCoinsSuccess = coins => {
+    return {
+        type: FETCH_COINS_SUCCESS,
         payload: {
-            title,
-            summary,
-            id,
-            posts
+            coins: coins
         }
     };
 };
 
-export const editBoard = (title, summary, id, posts) => {
+export const fetchCoinsError = error => {
     return {
-        type: EDIT_BOARD,
+        type: FETCH_COINS_ERROR,
         payload: {
-            title,
-            summary,
-            id,
-            posts
+            error: error
         }
     };
 };
 
-export const addPost = (boardId, title, body, id, comments) => {
-    return {
-        type: ADD_POST,
-        payload: {
-            boardId,
-            title,
-            body,
-            id,
-            comments
-        }
-    };
-};
+//a function that calls another function
+export const fetchCoins = () => dispatch => {
+    const url = `https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=${API_KEY_CMC}`;
 
-export const editPost = (boardId, title, body, id, comments) => {
-    return {
-        type: EDIT_POST,
-        payload: {
-            boardId,
-            title,
-            body,
-            id,
-            comments
-        }
-    };
-};
-
-export const addComment = (boardId, postId, user, text) => {
-    return {
-        type: ADD_COMMENT,
-        payload: {
-            boardId,
-            postId,
-            user,
-            text
-        }
-    };
-};
-
-export const editComment = (boardId, postId, commentId, user, text) => {
-    return {
-        type: EDIT_COMMENT,
-        payload: {
-            boardId,
-            postId,
-            commentId,
-            user,
-            text
-        }
-    };
+    dispatch(fetchCoinsPending());
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            dispatch(fetchCoinsSuccess(data.data));
+        })
+        .catch(err => dispatch(fetchCoinsError(err)));
 };

@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className="row">
             <header className="col-md-8">
-                <h1>🗣Hollar Board</h1>
+                <h1>ReduxCoins</h1>
             </header>
             <div className="col-md-4">
                 <CreateUserContainer />

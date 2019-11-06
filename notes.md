@@ -161,9 +161,46 @@ connect()(Component)
 -   getState - get current state
 -   replaceReducer
 
-<!--
-https://www.youtube.com/watch?v=CVpUuw9XSjY
-https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app
-https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage
-https://codeburst.io/redux-a-crud-example-abb834d763c9
--->
+## Redux Thunk
+
+-   thunk (noun): a function returned from another function
+    ```
+        function notAThunk() {
+            return function aThunk() {
+                console.log('hello i am a thunk');
+            }
+        }
+    ```
+-   code to be executed later
+-   regular action
+
+    ```
+    export const getAllItemsA = () => {
+        return {
+            type: UPDATE_ALL_ITEMS,
+            items
+        };
+    };
+    ```
+
+-   redux thunk version
+    ```
+    export const getAllItemsB = () => {
+        return dispatch => {
+            Api.getAll().then(items => {
+                dispatch({
+                    type: UPDATE_ALL_ITEMS,
+                    items
+                });
+            });
+        };
+    };
+    ```
+
+
+    <!--
+    https://www.youtube.com/watch?v=CVpUuw9XSjY
+    https://stackoverflow.com/questions/35305661/where-to-write-to-localstorage-in-a-redux-app
+    https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage
+    https://codeburst.io/redux-a-crud-example-abb834d763c9
+    -->

@@ -4,3 +4,4 @@ node_modules/
 #folders
 dist/
 .DS_Store
+config_keys.js
